@@ -56,26 +56,28 @@ When browsing GitHub (pull requests, issues, comments, etc.), this extension aut
 
 ## Usage
 
+### Quick Setup (Easiest!)
+
 1. Install the extension following the steps above
-2. **Configure your JIRA URL:**
-   - **Chrome:** Right-click the extension icon in Chrome's toolbar and select "Options", OR go to `chrome://extensions/`, find "GitHub to JIRA Autolinker", and click "Extension options"
-   - **Firefox:** Click the extension icon or go to `about:addons`, find "GitHub to JIRA Autolinker", and click "Options"
-   - Enter your JIRA instance URL (e.g., `https://your-company.atlassian.net/browse/`)
-   - Click "Save Settings"
-3. Navigate to any GitHub page (e.g., `https://github.com/yourorg/yourrepo`)
-4. Any JIRA ticket references will automatically become clickable links
-5. Click on a link to open the ticket in JIRA in a new tab
+2. **Click the extension icon** in your browser toolbar
+3. Enter your JIRA URL (e.g., `https://your-company.atlassian.net/browse/`)
+4. Click "Save"
+5. Visit any GitHub page - JIRA ticket references will now be clickable links!
+
+### Alternative: Using Options Page
+
+- **Chrome:** Right-click the extension icon → "Options", OR go to `chrome://extensions/` → "Extension options"
+- **Firefox:** Right-click the extension icon → "Manage Extension" → "Options", OR go to `about:addons` → "Options"
 
 ## Configuration
 
-**Setting up your JIRA URL:**
+**Quick configuration:**
 
-1. Open the extension options:
-   - **Chrome:** Right-click extension icon → Options, or via `chrome://extensions/`
-   - **Firefox:** Click extension icon or via `about:addons`
-2. Enter your JIRA instance URL
-3. The extension will automatically add `/browse/` if needed
-4. Click Save
+Simply click the extension icon in your browser toolbar and enter your JIRA URL. The popup will:
+- Auto-format your URL (adds `/browse/` if needed)
+- Validate the URL
+- Save instantly
+- Auto-close after saving
 
 **Example JIRA URLs:**
 - `https://your-company.atlassian.net/browse/`
@@ -104,15 +106,21 @@ The extension recognizes JIRA tickets matching this pattern:
 ## Files
 
 ### Chrome Version (`chrome/`)
+
 - `manifest.json` - Extension configuration (Manifest V3)
 - `content.js` - Main script that performs the linking
-- `options.html` - Settings page for configuring JIRA URL
+- `popup.html` - Quick setup popup (click extension icon)
+- `popup.js` - Popup logic
+- `options.html` - Full settings page
 - `options.js` - Settings page logic
 
 ### Firefox Version (`firefox/`)
+
 - `manifest.json` - Extension configuration (Manifest V2)
 - `content.js` - Main script that performs the linking (Firefox-compatible)
-- `options.html` - Settings page for configuring JIRA URL
+- `popup.html` - Quick setup popup (click extension icon)
+- `popup.js` - Popup logic (Firefox-compatible)
+- `options.html` - Full settings page
 - `options.js` - Settings page logic (Firefox-compatible)
 
 ### Root

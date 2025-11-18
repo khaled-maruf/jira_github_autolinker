@@ -7,6 +7,10 @@
     "storage",
     "https://github.com/*"
   ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Configure JIRA URL"
+  },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
