@@ -35,19 +35,31 @@ When browsing GitHub (pull requests, issues, comments, etc.), this extension aut
 
 ## Installation
 
+### Chrome
+
 1. Clone or download this repository
 2. Open Chrome and navigate to `chrome://extensions/`
 3. Enable "Developer mode" (toggle in top-right corner)
 4. Click "Load unpacked"
-5. Select the extension directory
+5. Select the `chrome` directory from this repository
 6. The extension is now installed!
+
+### Firefox
+
+1. Clone or download this repository
+2. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`
+3. Click "Load Temporary Add-on"
+4. Navigate to the `firefox` directory and select the `manifest.json` file
+5. The extension is now installed!
+
+**Note:** For Firefox, temporary add-ons are removed when you close the browser. For permanent installation, you would need to sign the extension through Mozilla Add-ons.
 
 ## Usage
 
 1. Install the extension following the steps above
 2. **Configure your JIRA URL:**
-   - Right-click the extension icon in Chrome's toolbar and select "Options"
-   - OR go to `chrome://extensions/`, find "GitHub to JIRA Autolinker", and click "Extension options"
+   - **Chrome:** Right-click the extension icon in Chrome's toolbar and select "Options", OR go to `chrome://extensions/`, find "GitHub to JIRA Autolinker", and click "Extension options"
+   - **Firefox:** Click the extension icon or go to `about:addons`, find "GitHub to JIRA Autolinker", and click "Options"
    - Enter your JIRA instance URL (e.g., `https://your-company.atlassian.net/browse/`)
    - Click "Save Settings"
 3. Navigate to any GitHub page (e.g., `https://github.com/yourorg/yourrepo`)
@@ -58,7 +70,9 @@ When browsing GitHub (pull requests, issues, comments, etc.), this extension aut
 
 **Setting up your JIRA URL:**
 
-1. Click on the extension options (right-click extension icon → Options)
+1. Open the extension options:
+   - **Chrome:** Right-click extension icon → Options, or via `chrome://extensions/`
+   - **Firefox:** Click extension icon or via `about:addons`
 2. Enter your JIRA instance URL
 3. The extension will automatically add `/browse/` if needed
 4. Click Save
@@ -67,7 +81,7 @@ When browsing GitHub (pull requests, issues, comments, etc.), this extension aut
 - `https://your-company.atlassian.net/browse/`
 - `https://jira.company.com/browse/`
 
-The URL is stored securely in Chrome's sync storage and will sync across your Chrome browsers when signed in.
+The URL is stored securely in browser sync storage and will sync across your browsers when signed in.
 
 ## JIRA Ticket Pattern
 
@@ -89,10 +103,19 @@ The extension recognizes JIRA tickets matching this pattern:
 
 ## Files
 
-- `manifest.json` - Extension configuration
+### Chrome Version (`chrome/`)
+- `manifest.json` - Extension configuration (Manifest V3)
 - `content.js` - Main script that performs the linking
 - `options.html` - Settings page for configuring JIRA URL
 - `options.js` - Settings page logic
+
+### Firefox Version (`firefox/`)
+- `manifest.json` - Extension configuration (Manifest V2)
+- `content.js` - Main script that performs the linking (Firefox-compatible)
+- `options.html` - Settings page for configuring JIRA URL
+- `options.js` - Settings page logic (Firefox-compatible)
+
+### Root
 - `README.md` - This file
 
 ## How It Works
@@ -108,14 +131,15 @@ The extension recognizes JIRA tickets matching this pattern:
 This extension:
 - ✅ Only runs on GitHub.com
 - ✅ Does not collect or transmit any data
-- ✅ Stores your JIRA URL locally using Chrome's sync storage
-- ✅ Your JIRA URL syncs across your Chrome browsers (when signed in)
+- ✅ Stores your JIRA URL locally using browser sync storage
+- ✅ Your JIRA URL syncs across your browsers (when signed in)
 - ✅ All processing happens locally in your browser
+- ✅ Works identically in Chrome and Firefox
 
 ## Troubleshooting
 
 **Links aren't appearing:**
-1. Make sure the extension is enabled in `chrome://extensions/`
+1. Make sure the extension is enabled in your browser's extension manager
 2. Check that you've configured a JIRA URL in the extension options
 3. Reload the extension after making any changes
 4. Hard refresh the GitHub page (Cmd+Shift+R on Mac, Ctrl+Shift+R on Windows)
@@ -125,7 +149,11 @@ This extension:
 - Open extension options and update the URL, then reload GitHub pages
 
 **Extension options not showing:**
-- Go to `chrome://extensions/`, find the extension, and click "Extension options"
+- **Chrome:** Go to `chrome://extensions/`, find the extension, and click "Extension options"
+- **Firefox:** Go to `about:addons`, find the extension, and click "Options"
+
+**Firefox: Extension disappears after browser restart:**
+- Temporary add-ons in Firefox are removed when the browser closes. For permanent installation, the extension needs to be signed through Mozilla Add-ons or you need to use Firefox Developer Edition/Nightly with `xpinstall.signatures.required` set to `false` in `about:config`.
 
 ## License
 
