@@ -2,6 +2,20 @@
 
 A Chrome extension that automatically converts JIRA ticket references (e.g., `PROJ-123`) into clickable links on GitHub pages.
 
+## Table of Contents
+
+- [What It Does](#what-it-does)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [JIRA Ticket Pattern](#jira-ticket-pattern)
+- [Files](#files)
+- [How It Works](#how-it-works)
+- [Privacy](#privacy)
+- [Troubleshooting](#troubleshooting)
+- [License](#license)
+
 ## What It Does
 
 When browsing GitHub (pull requests, issues, comments, etc.), this extension automatically detects JIRA ticket references in the text and converts them into clickable links that open directly in your JIRA instance.
