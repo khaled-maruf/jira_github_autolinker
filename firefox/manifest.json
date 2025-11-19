@@ -3,6 +3,12 @@
   "name": "GitHub to JIRA Autolinker",
   "version": "1.0",
   "description": "Automatically converts text like PROJ-123 into JIRA links on GitHub.",
+  "homepage_url": "https://github.com/khaled4vokalz/jira_github_autolinker",
+  "author": "Khaled Maruf",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
   "permissions": [
     "storage",
     "https://github.com/*"
@@ -24,7 +30,7 @@
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "github-jira-autolinker@example.com",
+      "id": "{daf44bf7-a45e-4450-979c-91cf07434c3d}",
       "strict_min_version": "57.0"
     }
   }
